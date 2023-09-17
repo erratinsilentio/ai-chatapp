@@ -17,9 +17,8 @@ const ChatInput: FC<ChatInputProps> = ({ className, ...props }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ messages: "hello" }),
+        body: JSON.stringify({ messages: message }),
       });
-
       return response.body;
     },
     onSuccess: () => {
@@ -36,12 +35,12 @@ const ChatInput: FC<ChatInputProps> = ({ className, ...props }) => {
           onKeyDown={(e) => {
             if (e.key === "Enter" && !e.shiftKey) {
               e.preventDefault();
+
               const message: Message = {
                 id: nanoid(),
                 isUserMessage: true,
                 text: input,
               };
-
               sendMessage(message);
             }
           }}
