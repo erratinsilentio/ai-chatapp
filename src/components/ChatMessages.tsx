@@ -34,8 +34,7 @@ const ChatMessages: FC<ChatMessagesProps> = ({ className, ...props }) => {
                 }
               )}
             >
-              {/* <MarkdownLite text={message.text}></MarkdownLite> */}
-              {message.text}
+              <MarkdownLite text={message.text}></MarkdownLite>
             </div>
           </div>
         </div>
